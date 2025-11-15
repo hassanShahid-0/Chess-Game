@@ -51,13 +51,13 @@ _______________________________________________________________________
     Feature                                Status
 ----------------------------------------------------
   Basic project setup	                     ✔
-  Chess board representation	             ✔
-  Piece movement logic	                   ✔
-  Special moves	                           ✔
-  Check and Checkmate detection	           ✔
-  AI opponent	                             ✔
-  Graphical User Interface	               ✔
-  Difficulty levels	                       ✔
+  Chess board representation	             
+  Piece movement logic	                   
+  Special moves	                           
+  Check and Checkmate detection	           
+  AI opponent	                             
+  Graphical User Interface	               
+  Difficulty levels	                       
 _______________________________________________________________________
 
 📅 Development Timeline
