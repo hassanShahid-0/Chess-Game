@@ -1,0 +1,29 @@
+{
+  "name": "chess-game",
+  "version": "1.0.0",
+  "description": "_______________________________________________________________________\r 🏆 Chess Game – DSA Project\r _______________________________________________________________________",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hassanShahid-0/Chess-Game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/hassanShahid-0/Chess-Game/issues"
+  },
+  "homepage": "https://github.com/hassanShahid-0/Chess-Game#readme",
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+}

@@ -33,8 +33,7 @@ private:
 public:
     AI(Difficulty diff = MEDIUM);
     
-    Move getBestMove(Game& game, Color color);
-    
+    Move getBestMove(Game& game, Color color, bool silent = false);    
     int minimax(Board& board, int depth, int alpha, int beta, bool isMaximizing, Color color, Move lastMove, const DifficultyConfig& config);
     
     void setDifficulty(Difficulty diff);

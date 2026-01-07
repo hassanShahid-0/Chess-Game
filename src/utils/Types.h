@@ -50,9 +50,16 @@ struct Position{
     }
 
     string toString() const {
-        if(isValid())
+    if (!isValid()) {
         return "invalid";
     }
+    
+    // Convert position to chess notation (e.g., "e2")
+    char file = 'a' + col;
+    char rank = '1' + row;
+    
+    return string(1, file) + string(1, rank);
+}
 
     static Position fromString(const string& notation){
         if(notation.length()!= 2)

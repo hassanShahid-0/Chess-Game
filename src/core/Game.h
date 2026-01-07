@@ -38,6 +38,7 @@ class Game {
     int getMoveCount() const;
 
     string getGameStatus() const;
+    void setCurrentPlayer(Color player);
 
     bool isValidMove (Position from, Position to) const;
     bool isValidMove (Move move) const;

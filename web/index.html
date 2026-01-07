@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♟️ Chess Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Main Menu -->
+    <div id="mainMenu">
+        <h1 class="menu-title">♟️CHESS GAME&nbsp;</h1>
+        <div class="menu-buttons">
+            <button class="menu-btn menu-btn-pvp" onclick="ChessGame.startSetup('pvp')">
+                <span class="btn-text">👥 Player vs Player</span>
+            </button>
+            <button class="menu-btn menu-btn-pvc" onclick="ChessGame.startSetup('pvc')">
+                <span class="btn-text">🤖 Player vs AI</span>
+            </button>
+            <button class="menu-btn menu-btn-exit" onclick="ChessGame.exitGame()">
+                <span class="btn-text">🚪 Exit</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Setup Screen -->
+    <div id="setupScreen">
+        <h2 class="setup-title" id="setupTitle">Game Setup</h2>
+        <div id="setupForm">
+            <div class="input-group">
+                <label>Player 1 Name</label>
+                <input type="text" id="player1Name" placeholder="Enter Player 1 name" value="Player 1">
+            </div>
+            <div class="input-group" id="player2Group">
+                <label>Player 2 Name</label>
+                <input type="text" id="player2Name" placeholder="Enter Player 2 name" value="Player 2">
+            </div>
+            <div class="input-group" id="difficultyGroup" style="display: none;">
+                <label>AI Difficulty</label>
+                <select id="aiDifficulty">
+                    <option value="easy">🟢 Easy</option>
+                    <option value="medium" selected>🟡 Medium</option>
+                    <option value="hard">🔴 Hard</option>
+                </select>
+            </div>
+        </div>
+        <div class="setup-buttons">
+            <button class="setup-btn setup-btn-back" onclick="ChessGame.backToMenu()">← Back</button>
+            <button class="setup-btn setup-btn-start" onclick="ChessGame.startGame()">Start Game →</button>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen">
+        <div class="game-container">
+            <!-- Left Side Panel -->
+            <div class="game-panel">
+                <!-- Player Info Cards -->
+                <div class="panel-card">
+                    <div class="game-header">
+                        <div class="player-info active" id="player1Info">
+                            <div class="player-avatar">♔</div>
+                            <div>
+                                <div id="player1NameDisplay">Player 1</div>
+                                <small>White</small>
+                            </div>
+                        </div>
+                        <div class="player-info" id="player2Info">
+                            <div class="player-avatar">♚</div>
+                            <div>
+                                <div id="player2NameDisplay">Player 2</div>
+                                <small>Black</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Message Card -->
+                <div class="panel-card">
+                    <div class="game-message" id="gameMessage"></div>
+                </div>
+
+                <!-- Game Controls Card -->
+                <div class="panel-card">
+                    <div class="game-controls">
+                        <button class="game-btn game-btn-secondary" onclick="ChessGame.undoMove()">↩️ Undo</button>
+                        <button class="game-btn game-btn-primary" onclick="ChessGame.newGame()">🔄 New Game</button>
+                        <button class="game-btn game-btn-danger" onclick="ChessGame.quitToMenu()">🚪 Quit</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Chess Board Section -->
+            <div class="board-section">
+                <div class="board-container">
+                    <div id="chessBoard" class="chess-board"></div>
+                </div>
+            </div>
+            <div class="history-panel">
+                <!-- Move History Card -->
+                <div class="panel-card">
+                    <div class="move-history">
+                        <h3>📜 Move History</h3>
+                        <div id="moveList" class="move-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript modules -->
+    <script src="js/api.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+</html>

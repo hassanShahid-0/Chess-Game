@@ -21,14 +21,14 @@ DifficultyConfig getConfig(Difficulty diff) {
             break;
             
         case MEDIUM:
-            config.depth = 4;
+            config.depth = 3;
             config.useTransTable = true;
             config.useAdvancedEval = true;
             config.randomness = 10;
             break;
             
         case HARD:
-            config.depth = 6;
+            config.depth = 4;
             config.useTransTable = true;
             config.useAdvancedEval = true;
             config.randomness = 0;
@@ -46,19 +46,21 @@ AI::AI(Difficulty diff) {
     srand(time(0));
 }
 
-Move AI::getBestMove(Game& game, Color color) {
+Move AI::getBestMove(Game& game, Color color, bool silent) {
     resetStatistics();
     
     DifficultyConfig config = getDifficultyConfig();
     
-    cout << "\n🤖 AI is thinking";
-    cout.flush();
+    if (!silent) {
+        cout << "\n🤖 AI is thinking";
+        cout.flush();
+    }
     
     Board board = game.getBoard().copy();
     vector<Move> moves = GameRules::getAllValidMoves(board, color, game.getLastMove());
     
     if (moves.empty()) {
-        cout << " No valid moves!\n";
+        if (!silent) cout << " No valid moves!\n";
         return Move();
     }
     
@@ -66,7 +68,7 @@ Move AI::getBestMove(Game& game, Color color) {
         int random = rand() % 100;
         if (random < config.randomness) {
             int randomIndex = rand() % moves.size();
-            cout << " (random move) Done! 🎲\n";
+            if (!silent) cout << " (random move) Done! 🎲\n";
             return moves[randomIndex];
         }
     }
@@ -91,12 +93,16 @@ Move AI::getBestMove(Game& game, Color color) {
         
         alpha = max(alpha, score);
         
-        cout << ".";
-        cout.flush();
+        if (!silent) {
+            cout << ".";
+            cout.flush();
+        }
     }
     
-    cout << " Done! ✓\n";
-    printThinkingInfo();
+    if (!silent) {
+        cout << " Done! ✓\n";
+        printThinkingInfo();
+    }
     
     return bestMove;
 }

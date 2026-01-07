@@ -168,6 +168,10 @@ string Game::getGameStatus() const {
     return "Stalemate! Game is a draw.";
 }
 
+void Game::setCurrentPlayer(Color player) {
+    currentPlayer = player;
+}
+
 // ============================================================================
 // MOVE VALIDATION
 // ============================================================================
